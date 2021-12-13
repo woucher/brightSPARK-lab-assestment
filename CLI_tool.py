@@ -1,6 +1,16 @@
 import csv #importing default python csv handler
 import sys #handling command line args'
-import yaml #struct used to store values in yaml format
+import yaml
+from yaml.loader import Loader
+from yaml.dumper import Dumper #struct used to store values in yaml format
+
+class SoccerRecord(yaml.YAMLObject):
+    yaml_dumper = Dumper
+    yaml_loader = Loader
+    yaml_tag = 'records'
+    
+    def __init__(self, val):
+        self.val = val
 
 #Takes a file path are returns the yaml format?
 def import_csv_as_list_dict(local_file_path):
@@ -24,7 +34,7 @@ def main(file_path):
     our_record = sorted(our_record, key=lambda d: d['ranked_score'], reverse=True)
     for item in our_record:
         del(item['ranked_score'])
-    print(yaml.dump(our_record[:3]))
+    print(SoccerRecord.yaml_dumper(our_record[:3]))
     
 
 
