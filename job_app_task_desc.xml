@@ -1,0 +1,102 @@
+Hi there,
+
+Good news! Having reviewed your resume, our team has decided to progress your application through to the next stage of the recruitment process!
+
+You are currently in Stage 3 of the process:
+
+Stage 1: Resume Review
+Stage 2: Phone Screen
+      Stage 3: Software Engineering Assessment
+Stage 4: Technical Interview
+Stage 5: Behavioural Interview
+Stage 6: Offer
+In Stage 3 we are looking to get an idea of your coding ability through a simple programming task which is described below.
+
+Goal:
+Create a CLI tool which:
+
+Takes in a CSV file containing the following columns:
+firstname: String
+lastname: String
+date: String (format YYYY-MM-DD)
+division: Integer
+points: Integer
+summary: String
+Sorts the records by division and points.
+Selects the top three records.
+Prints the records to stdout in the following YAML format:
+records:
+- name: <firstname> <lastname>
+  details: In division <division> from <date> performing <summary>
+- name: <firstname> <lastname>
+  details: In division <division> from <date> performing <summary>
+- name: <firstname> <lastname>
+  details: In division <division> from <date> performing <summary>
+As an example, for the following input file:
+
+    firstname,lastname,date,division,points,summary
+    Terza,Lowton,2017-09-15,1,53,"Defensive Duties"
+    Kayle,Trayes,2017-10-23,9,83,"Offensive Duties"
+    Reba,Crosi,2017-10-23,6,84,"Offensive Duties"
+    Barnett,Dunnico,2018-02-26,5,24,"Offensive Duties"
+    Elke,Collete,2017-06-19,6,68,"Oversight Duties"
+    Tess,Gosson,2017-12-22,9,22,"Defensive Duties"
+    Zedekiah,Miller,2018-04-09,3,89,"Offensive Duties"
+    Zelma,Ivatt,2018-01-02,1,72,"Offensive Duties"
+    Vivia,Twidell,2017-11-17,9,72,"Offensive Duties"
+    Alvira,Elger,2017-05-02,6,58,"Oversight Duties"
+The following output should be produced:
+72 
+    records:
+    - name: Zelma Ivatt 
+      details: In division 1 from 2018-01-02 performing Offensive Duties
+    - name: Terza Lowton
+      details: In division 1 from 2017-09-15 performing Defensive Duties
+    - name: Zedekiah Miller
+      details: In division 3 from 2018-04-09 performing Offensive Duties
+NOTE: The order of keys in YAML are irrelevant. So the following output is also acceptable:
+
+    records:
+    - details: In division 1 from 2018-01-02 performing Offensive Duties
+      name: Zelma Ivatt
+    - details: In division 1 from 2017-09-15 performing Defensive Duties
+      name: Terza Lowton
+    - details: In division 3 from 2018-04-09 performing Offensive Duties
+      name: Zedekiah Miller
+Constraints:
+You must use one of the following languages to implement your solution:
+Java
+Groovy
+Python
+C#
+You must use git to manage your code.
+You must regularly push your code to Github.
+Create an account if you do not have an existing one.
+Create a new repository under your account and push your code to it.
+Assessment:
+We will be assessing your solution according to the following:
+
+Code style and commenting.
+Unit Tests.
+Overall design and architecture.
+Suitability of data structures and algorithms used.
+Handling of edge cases.
+Logging and error reporting.
+Ease of build and deployment.
+While your code does not need to be perfect, it should be indicative of the work you would perform should you be successful in the role. We generally expect candidates to spend 1-2 hours on the task. The primary output of the role is to generate quality code, so this is your opportunity to showcase your skills.
+
+We understand that time is a difficult resource to come by. If you do not have time to adequately meet all assessment points to the standard you would like, please ensure you include placeholder comments explaining what you would/should do as we are interested in seeing that you have thought through the problem space thoroughly, rather than trying to get as much done as possible.
+
+Should you successfully progress to the next round, you will be asked to explain your design and implementation choices.
+
+Delivery:
+You have 1 week to complete the task. Please ensure your final code has been pushed to Github by:
+
+2021-12-14 23:00 AEDT
+Send us an email with the URL of your Github repository once complete.
+
+We look forward to seeing your solution. Good luck!
+
+The brightSPARK Team
+operations at www.brightsparklabs.com
+e: ops@brightsparklabs.com
