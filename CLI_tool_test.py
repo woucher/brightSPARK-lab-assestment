@@ -1,5 +1,5 @@
 import unittest
-import CLI_tool_top3_fileheader
+import CLI_tool
 class testMethods(unittest.TestCase):
     def test_x(self):
         self.assertEqual(None,None)
