@@ -4,13 +4,21 @@ import yaml
 from yaml.loader import Loader
 from yaml.dumper import Dumper #struct used to store values in yaml format
 
-class SoccerRecord(yaml.YAMLObject):
-    yaml_dumper = Dumper
-    yaml_loader = Loader
-    yaml_tag = 'records'
-    
-    def __init__(self, val):
-        self.val = val
+# Overloading the yaml object is a bit weird. 
+# Im just gonna use yaml.dumper applied to my new struct.
+# Nested Dicts, i.e. k,v pairs of tag, dictionary or tag, list of dictionary.
+# This behaves similar the yaml data structure without needed it. 
+class SoccerRecord(dict_tag, dict_obj):
+    self.yaml_tag = dict_tag
+    self.yaml_value = dict_obj
+    def sort_by_record_value():
+        return None
+    @classmethod
+    def return_n_records():
+        return None
+    def __init__(self, tag):
+        self.yaml_tag = tag
+#YAML is just a tree? classes are a pain
 
 #Takes a file path are returns the yaml format?
 def import_csv_as_list_dict(local_file_path):
@@ -34,7 +42,16 @@ def main(file_path):
     our_record = sorted(our_record, key=lambda d: d['ranked_score'], reverse=True)
     for item in our_record:
         del(item['ranked_score'])
-    print(SoccerRecord.yaml_dumper(our_record[:3]))
+    top_three = dict()
+    top_three['records'] = our_record[:3]
+    print(yaml.dump(top_three))
+    
+    #our_new_record = SoccerRecord('records')
+
+    #our_new_record.yaml_dumper(our_record)
+    #our_new_record = yaml.dump(our_record)
+    #print(our_new_record)
+    #print(SoccerRecord.yaml_dumper(our_record[:3]))
     
 
 
@@ -45,7 +62,7 @@ if __name__ == "__main__":
     try:
         file_path = sys.argv[1]
     except IndexError:
-        print("No file path given")
+        #print("No file path given")
         file_path = 'E:\Desktop\\brightSPARK lab job app\given_test_file.csv'
     main(file_path)
 
